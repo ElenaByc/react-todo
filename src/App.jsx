@@ -1,30 +1,13 @@
 import './App.css'
-
-const todoList = [
-  {
-    id: 1,
-    title: "Complete Lesson 1.1 assignment"
-  },
-  {
-    id: 2,
-    title: "Read pages 1 through 37 of the Road to React textbook"
-  },
-  {
-    id: 3,
-    title: "Watch lessons 1-25 of the Learn React course on Scrimba"
-  }
-]
+import TodoList from './TodoList'
+import AddTodoForm from './AddTodoForm' 
 
 function App() {
-
   return (
     <>
       <h1>Todo List</h1>
-      <ul>
-        {todoList.map(elem =>
-          <li key={elem.id}>{elem.title}</li>
-        )}
-      </ul>
+      <AddTodoForm />
+      <TodoList />
     </>
   )
 }
