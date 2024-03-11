@@ -1,10 +1,11 @@
-const AddTodoForm = () => {
+const AddTodoForm = (props) => {
 
   const handleAddTodo = (event) => {
     event.preventDefault();
     const todoTitle = event.target.title.value;
     event.target.reset();
     console.log(todoTitle);
+    props.onAddTodo(todoTitle);
   }
 
   return (
