@@ -1,3 +1,5 @@
+import TodoListItem from './TodoListItem';
+
 const todoList = [
   {
     id: 1,
@@ -11,16 +13,14 @@ const todoList = [
     id: 3,
     title: "Watch lessons 1-25 of the Learn React course on Scrimba"
   }
-]
+];
 
-function TodoList() {
+const TodoList = () => {
   return (
-      <ul>
-        {todoList.map(elem =>
-          <li key={elem.id}>{elem.title}</li>
-        )}
-      </ul>
-  )
+    <ul>
+      {todoList.map(todo => <TodoListItem key={todo.id} todo={todo} />)}
+    </ul>
+  );
 }
 
-export default TodoList
+export default TodoList;
