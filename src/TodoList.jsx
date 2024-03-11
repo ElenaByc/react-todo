@@ -3,16 +3,32 @@ import TodoListItem from './TodoListItem';
 const todoList = [
   {
     id: 1,
-    title: "Complete Lesson 1.1 assignment"
+    title: "Challenge the sun to a duel! Open the curtains and see who blinks first."
   },
   {
     id: 2,
-    title: "Read pages 1 through 37 of the Road to React textbook"
+    title: "Brush your teeth with your non-dominant hand (bonus points for toothpaste art on the mirror)."
   },
   {
     id: 3,
-    title: "Watch lessons 1-25 of the Learn React course on Scrimba"
-  }
+    title: "Eat breakfast cereal with a fork. Rebellion is delicious!"
+  },
+  {
+    id: 4,
+    title: "Talk to your houseplants in a superhero voice."
+  },
+  {
+    id: 5,
+    title: "Walk backwards for 5 minutes. People watching has never been so entertaining!"
+  },
+  {
+    id: 6,
+    title: "Organize your desk items by color, ignoring their actual function. Aesthetics over practicality!"
+  },
+  {
+    id: 7,
+    title: "Have a staring contest with your reflection. Loser has to do the dishes tomorrow."
+  },
 ];
 
 const TodoList = () => {
