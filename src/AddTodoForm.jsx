@@ -11,7 +11,7 @@ const AddTodoForm = (props) => {
   return (
     <form onSubmit={handleAddTodo}>
       <label htmlFor="todoTitle">Title</label>
-      <input type="text" id="todoTitle" name="title" />
+      <input type="text" id="todoTitle" name="title" required />
       <input type="submit" value="Add" />
     </form>
   );
