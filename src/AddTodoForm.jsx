@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const AddTodoForm = (props) => {
+const AddTodoForm = ({ onAddTodo }) => {
 
   const [todoTitle, setTodoTitle] = useState('');
 
@@ -12,7 +12,7 @@ const AddTodoForm = (props) => {
   const handleAddTodo = (event) => {
     event.preventDefault();
     console.log(todoTitle);
-    props.onAddTodo({
+    onAddTodo({
       title: todoTitle,
       id: Date.now()
     });
