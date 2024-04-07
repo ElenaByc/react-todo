@@ -1,8 +1,14 @@
-const InputWithLabel = ({ label, todoTitle, handleTitleChange }) => {
+const InputWithLabel = ({ children, todoTitle, handleTitleChange }) => {
   return (
     <>
-      <label htmlFor="todoTitle">{label}: </label>
-      <input type="text" id="todoTitle" name={label} value={todoTitle} onChange={handleTitleChange} required />
+      <label htmlFor="todoTitle">{children}: </label>
+      <input
+        type="text"
+        id="todoTitle"
+        name={children}
+        value={todoTitle}
+        onChange={handleTitleChange}
+        required />
       <input type="submit" value="Add" /></>
   );
 }
