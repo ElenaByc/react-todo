@@ -18,7 +18,7 @@ const InputWithLabel = ({ children, todoTitle, handleTitleChange }) => {
         value={todoTitle}
         onChange={handleTitleChange}
         required />
-      <input type="submit" value="Add" /></>
+    </>
   );
 }
 
