@@ -43,10 +43,14 @@ const App = () => {
     <>
       <h1>Todo List</h1>
       <AddTodoForm onAddTodo={addTodo} />
-      <TodoList
-        todoList={todoList}
-        onRemoveTodo={removeTodo}
-      />
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <TodoList
+          todoList={todoList}
+          onRemoveTodo={removeTodo}
+        />
+      )}
     </>
   );
 };
