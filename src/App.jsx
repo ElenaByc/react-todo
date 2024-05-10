@@ -54,8 +54,32 @@ const App = () => {
   }, [todoList, isLoading]);
 
 
-  const addTodo = (newTodo) => {
-    setTodoList([...todoList, newTodo]);
+  const addTodo = async (newTodo) => {
+    // setTodoList([...todoList, newTodo]);
+    console.log(newTodo);
+    const data = {
+      fields: {
+        title: newTodo.title,
+      },
+    };
+    const options = {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify(data),
+    };
+    try {
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+      const updatedData = await response.json();
+      console.log(updatedData);
+      newTodo.id = updatedData.id;
+      setTodoList([...todoList, newTodo]);
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
   const removeTodo = (id) => {
