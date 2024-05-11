@@ -55,8 +55,6 @@ const App = () => {
 
 
   const addTodo = async (newTodo) => {
-    // setTodoList([...todoList, newTodo]);
-    console.log(newTodo);
     const data = {
       fields: {
         title: newTodo.title,
@@ -73,13 +71,11 @@ const App = () => {
         throw new Error(`Error: ${response.status}`);
       }
       const updatedData = await response.json();
-      console.log(updatedData);
       newTodo.id = updatedData.id;
       setTodoList([...todoList, newTodo]);
     } catch (error) {
       console.log(error);
     }
-
   }
 
   const removeTodo = (id) => {
