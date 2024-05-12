@@ -19,6 +19,7 @@ const App = () => {
 
 
   const fetchData = useCallback(async () => {
+    setIsLoading(true);
     const options = {
       method: "GET",
       headers: headers,
@@ -73,6 +74,7 @@ const App = () => {
       const updatedData = await response.json();
       newTodo.id = updatedData.id;
       setTodoList([...todoList, newTodo]);
+      fetchData();
     } catch (error) {
       console.log(error);
     }
