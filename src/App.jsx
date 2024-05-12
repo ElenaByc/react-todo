@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import './App.css';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
@@ -18,13 +18,14 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     const options = {
       method: "GET",
       headers: headers,
     };
     try {
       const response = await fetch(url, options);
+      setIsLoading(false);
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
@@ -38,21 +39,20 @@ const App = () => {
       });
       setTodoList(todos);
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchData();
-    setIsLoading(false);
-  }, []);
+  }, [fetchData]);
 
   useEffect(() => {
     if (!isLoading) {
       localStorage.setItem("savedTodoList", JSON.stringify(todoList));
     }
   }, [todoList, isLoading]);
-
 
   const addTodo = async (newTodo) => {
     const data = {
