@@ -22,7 +22,7 @@ const App = () => {
   const fetchData = useCallback(async () => {
     setIsLoading(true);
     const options = {
-      method: "GET",
+      method: 'GET',
       headers: headers,
     };
     try {
@@ -52,7 +52,7 @@ const App = () => {
 
   useEffect(() => {
     if (!isLoading) {
-      localStorage.setItem("savedTodoList", JSON.stringify(todoList));
+      localStorage.setItem('savedTodoList', JSON.stringify(todoList));
     }
   }, [todoList, isLoading]);
 
@@ -63,7 +63,7 @@ const App = () => {
       },
     };
     const options = {
-      method: "POST",
+      method: 'POST',
       headers: headers,
       body: JSON.stringify(data),
     };
@@ -103,6 +103,10 @@ const App = () => {
               />
             )}
           </>
+        }
+        />
+        <Route path="/new" element={
+          <h1>New Todo List</h1>
         }
         />
       </Routes>
