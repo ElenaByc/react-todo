@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react';
+import style from './InputWithLabel.module.css';
 
 const InputWithLabel = ({ id, value, handleValueChange, children }) => {
   const inputRef = useRef();
@@ -9,8 +10,9 @@ const InputWithLabel = ({ id, value, handleValueChange, children }) => {
 
   return (
     <>
-      <label htmlFor={id}>{children}</label>
+      <label className={style.formLabel} htmlFor={id}>{children}</label>
       <input
+        className={style.formInput}
         ref={inputRef}
         type="text"
         id={id}
