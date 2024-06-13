@@ -1,1 +1,10 @@
+h1 {
+    font-family: "Kaushan Script", cursive;
+    font-size: 3rem;
+    font-weight: 600;
+    font-style: normal;
+    text-align: center;
+    color: var(--color-blue);
 
+    margin-bottom: 1rem;
+}

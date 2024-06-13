@@ -1,0 +1,21 @@
+.formInput {
+    width: 70%;
+    background-color: var(--color-white);
+    box-shadow: inset 0px 0px 3px var(--color-gray-l), inset 0px 2px 3px var(--color-gray);
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+
+    color: var(--color-blue);
+    font-style: italic;
+    font-size: 1rem;
+}
+
+.formInput:focus {
+    outline-color: var(--color-gray);
+}
+
+.formLabel {
+    font-style: italic;
+    font-weight: 600;
+}
