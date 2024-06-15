@@ -1,5 +1,5 @@
 import style from './TodoListItem.module.css';
-import RemoveIcon from './cross-dark.svg?react';
+import RemoveIcon from '../assets/cross-dark.svg?react';
 
 const TodoListItem = ({ todo, onRemoveTodo }) => {
   return (
