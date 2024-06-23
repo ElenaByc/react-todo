@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import style from './TodoListItem.module.css';
 import RemoveIcon from '../assets/cross-dark.svg?react';
 
@@ -15,6 +16,11 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
       </button>
     </li>
   );
+};
+
+TodoListItem.propTypes = {
+	todo: PropTypes.object.isRequired,
+	onRemoveTodo: PropTypes.func.isRequired,
 };
 
 export default TodoListItem;
