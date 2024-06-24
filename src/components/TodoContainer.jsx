@@ -28,8 +28,7 @@ const TodoContainer = () => {
   };
 
   const compareTodos = (todoA, todoB) => {
-    console.log('Inside compareTodos !sortAsc', !sortAsc);
-    const mul = !sortAsc ? 1 : -1;
+    const mul = sortAsc ? 1 : -1;
     if (todoA.title > todoB.title) {
       return 1 * mul;
     }
@@ -58,7 +57,6 @@ const TodoContainer = () => {
         throw new Error(`Error: ${response.status}`);
       }
       const data = await response.json();
-      console.log('Inside fetch sortAsc', sortAsc);
       const todos = data.records.sort(compareRecords).map(record => {
         const todo = {
           id: record.id,
@@ -83,6 +81,10 @@ const TodoContainer = () => {
     }
   }, [todoList, isLoading]);
 
+  useEffect(() => {
+    sortTodoList();
+  }, [sortAsc]);
+
   const addTodo = async (newTodo) => {
     const data = {
       fields: {
@@ -101,9 +103,7 @@ const TodoContainer = () => {
       }
       const updatedData = await response.json();
       newTodo.id = updatedData.id;
-      setTodoList([...todoList, newTodo]);
-      console.log('sortAsc', sortAsc);
-      fetchData();
+      setTodoList([...todoList, newTodo].sort(compareTodos));
     } catch (error) {
       console.log(error);
     }
@@ -118,10 +118,8 @@ const TodoContainer = () => {
 
   const toggleSort = () => {
     setSortAsc(!sortAsc);
-    sortTodoList();
   };
 
-  console.log(sortAsc);
   return (
     <>
       <h1>Todo List</h1>
