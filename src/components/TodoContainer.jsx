@@ -3,7 +3,7 @@ import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
 
 
-const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}`;
+const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}/${import.meta.env.VITE_TABLE_NAME}/?view=Grid%20view&sort[0][field]=title&sort[0][direction]=asc`;
 
 const headers = {
   Authorization: `Bearer ${import.meta.env.VITE_AIRTABLE_API_TOKEN}`,
