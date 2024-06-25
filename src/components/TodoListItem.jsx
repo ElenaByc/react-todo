@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import style from './TodoListItem.module.css';
-import RemoveIcon from '../assets/cross-dark.svg?react';
+import RemoveIcon from '../assets/cross.svg?react';
 
 const TodoListItem = ({ todo, onRemoveTodo }) => {
   return (

@@ -76,12 +76,6 @@ const TodoContainer = () => {
   }, [fetchData]);
 
   useEffect(() => {
-    if (!isLoading) {
-      localStorage.setItem('savedTodoList', JSON.stringify(todoList));
-    }
-  }, [todoList, isLoading]);
-
-  useEffect(() => {
     sortTodoList();
   }, [sortAsc]);
 
