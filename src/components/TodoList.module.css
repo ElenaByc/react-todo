@@ -7,3 +7,40 @@
     width: 80%;
     padding: 10px;
 }
+
+.sortContainer {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.toggleSortBtnUp,
+.toggleSortBtnDown {
+    padding: 3px 7px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 0px 5px 1px var(--color-gray);
+}
+
+.toggleSortBtnUp>svg>g,
+.toggleSortBtnDown>svg>g  {
+    fill: var(--color-dark);
+    stroke: var(--color-dark);
+}
+
+.toggleSortBtnUp:hover>svg>g,
+.toggleSortBtnDown:hover>svg>g  {
+    fill: var(--color-blue);
+    stroke: var(--color-blue);
+}
+
+.toggleSortBtnUp:hover,
+.toggleSortBtnDown:hover {
+    color: var(--color-blue);
+    background-color: var(--color-gray-l);
+    box-shadow: 0px 0px 5px 1px var(--color-blue);
+}
+
+.toggleSortBtnDown {
+    transform: rotate(180deg);
+}
