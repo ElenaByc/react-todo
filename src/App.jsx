@@ -10,7 +10,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/todolist" element={<TodoContainer />} />
+        <Route path="/todolist" element={<TodoContainer tableName={import.meta.env.VITE_TABLE_NAME} />} />
       </Routes>
     </BrowserRouter>
   );
