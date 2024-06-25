@@ -27,11 +27,11 @@ const TodoContainer = ({ tableName }) => {
     return -1 * mul;
   };
 
-  const sortTodoList = () => {
-    const newTodoList = [...todoList];
-    newTodoList.sort(compareTodos);
-    setTodoList(newTodoList);
-  };
+  // const sortTodoList = () => {
+  //   const newTodoList = [...todoList];
+  //   newTodoList.sort(compareTodos);
+  //   setTodoList(newTodoList);
+  // };
 
   const fetchData = useCallback(async () => {
     const compareRecords = (objectA, objectB) => {
@@ -74,9 +74,9 @@ const TodoContainer = ({ tableName }) => {
     fetchData();
   }, [fetchData, tableName]);
 
-  useEffect(() => {
-    sortTodoList();
-  }, [sortAsc]);
+  // useEffect(() => {
+  //   sortTodoList();
+  // }, [sortAsc]);
 
   const addTodo = async (newTodo) => {
     const data = {
