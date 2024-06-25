@@ -102,11 +102,28 @@ const TodoContainer = ({ tableName }) => {
     }
   };
 
-  const removeTodo = (id) => {
-    const newTodoList = todoList.filter(
-      (todo) => todo.id != id
-    );
-    setTodoList(newTodoList);
+  const removeTodo = async (id) => {
+    const options = {
+      method: 'DELETE',
+      headers: headers,
+    };
+    try {
+      const response = await fetch(`${url}/${tableName}/${id}`, options);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+      const updatedData = await response.json();
+      if (updatedData.deleted && updatedData.id === id) {
+        const newTodoList = todoList.filter(
+          (todo) => todo.id != id
+        );
+        setTodoList(newTodoList);
+      } else {
+        throw new Error(`Record with id = ${id} was not deleted`);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const toggleSort = () => {
