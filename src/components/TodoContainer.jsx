@@ -27,12 +27,6 @@ const TodoContainer = ({ tableName }) => {
     return -1 * mul;
   };
 
-  // const sortTodoList = () => {
-  //   const newTodoList = [...todoList];
-  //   newTodoList.sort(compareTodos);
-  //   setTodoList(newTodoList);
-  // };
-
   const fetchData = useCallback(async () => {
     const compareRecords = (objectA, objectB) => {
       const mul = sortAsc ? 1 : -1;
@@ -74,14 +68,10 @@ const TodoContainer = ({ tableName }) => {
     fetchData();
   }, [fetchData, tableName]);
 
-  // useEffect(() => {
-  //   sortTodoList();
-  // }, [sortAsc]);
-
-  const addTodo = async (newTodo) => {
+  const addTodo = async (title) => {
     const data = {
       fields: {
-        title: newTodo.title,
+        title: title,
       },
     };
     const options = {
@@ -95,7 +85,10 @@ const TodoContainer = ({ tableName }) => {
         throw new Error(`Error: ${response.status}`);
       }
       const updatedData = await response.json();
-      newTodo.id = updatedData.id;
+      const newTodo = {
+        title: title,
+        id: updatedData.id
+      };
       setTodoList([...todoList, newTodo].sort(compareTodos));
     } catch (error) {
       console.log(error);
