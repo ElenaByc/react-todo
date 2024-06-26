@@ -1,19 +1,27 @@
 .listItem {
-    color: var(--color-blue);
-
-    padding: 10px 30px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10px;
+    padding: 10px;
     width: 100%;
     border: 1px solid var(--color-gray);
     border-radius: 7px;
-    position: relative;
+
+    color: var(--color-blue);
+}
+
+.listItem:hover {
+    background-color: var(--color-gray-l);
+    box-shadow: 0px 0px 5px 1px var(--color-blue);
 }
 
 .removeBtn {
-    position: absolute;
-    top: 3px;
-    right: 3px;
-
     border: none;
+}
+
+.listItem:hover .removeBtn {
+    background-color: var(--color-gray-l);
 }
 
 .removeBtn>svg>g {
