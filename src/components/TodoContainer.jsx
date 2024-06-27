@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState, useCallback } from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
+import HomeIcon from '../assets/home.svg?react';
+import style from './TodoContainer.module.css';
 
 const url = `https://api.airtable.com/v0/${import.meta.env.VITE_AIRTABLE_BASE_ID}`;
 
@@ -15,6 +18,11 @@ const TodoContainer = ({ tableName }) => {
   const [todoList, setTodoList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [sortAsc, setSortAsc] = useState(true);
+
+  const navigate = useNavigate();
+  const goHome = () => {
+    navigate("/");
+  };
 
   const compareTodos = (todoA, todoB) => {
     const mul = sortAsc ? 1 : -1;
@@ -157,6 +165,13 @@ const TodoContainer = ({ tableName }) => {
 
   return (
     <>
+      <button
+        title="Home"
+        className={style.goHomeBtn}
+        onClick={goHome}
+      >
+        <HomeIcon height="30px" width="30px" />
+      </button>
       <h1>{tableName} To&nbsp;Do List</h1>
       <AddTodoForm onAddTodo={addTodo} />
       {isLoading ? (

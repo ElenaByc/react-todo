@@ -1,0 +1,17 @@
+.goHomeBtn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: 0;
+    cursor: pointer;
+}
+
+.goHomeBtn>svg>g {
+    fill: var(--color-gray);
+    stroke: var(--color-gray);
+}
+
+.goHomeBtn:hover>svg>g {
+    fill: var(--color-blue);
+    stroke: var(--color-blue);
+}
