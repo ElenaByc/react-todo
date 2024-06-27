@@ -3,7 +3,7 @@ import TodoListItem from './TodoListItem';
 import style from './TodoList.module.css';
 import ArrowIcon from '../assets/arrow.svg?react';
 
-const TodoList = ({ todoList, sortAsc, onRemoveTodo, onToggleSort }) => {
+const TodoList = ({ todoList, sortAsc, onRemoveTodo, onUpdateTodo, onToggleSort }) => {
   return (
     <>
       <div className={style.sortContainer}><span>Sort By Title</span>
@@ -21,6 +21,7 @@ const TodoList = ({ todoList, sortAsc, onRemoveTodo, onToggleSort }) => {
             key={todo.id}
             todo={todo}
             onRemoveTodo={onRemoveTodo}
+            onUpdateTodo={onUpdateTodo}
           />)}
       </ul>
     </>
@@ -31,6 +32,7 @@ TodoList.propTypes = {
   todoList: PropTypes.array.isRequired,
   sortAsc: PropTypes.bool.isRequired,
   onRemoveTodo: PropTypes.func.isRequired,
+  onUpdateTodo: PropTypes.func.isRequired,
   onToggleSort: PropTypes.func.isRequired
 };
 

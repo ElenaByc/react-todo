@@ -1,7 +1,7 @@
 .listItem {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     column-gap: 10px;
     padding: 10px;
     width: 100%;
@@ -11,20 +11,46 @@
     color: var(--color-blue);
 }
 
+.itemTitle {
+    flex: 0 0 calc(100% - (18px + 10px) * 2);
+}
+
 .listItem:hover {
     background-color: var(--color-gray-l);
     box-shadow: 0px 0px 5px 1px var(--color-blue);
 }
 
-.removeBtn {
+.listItem.done {
+    background-color: var(--color-green-l);
+    color: var(--color-green);
+    text-decoration: line-through;
+    border: 1px solid var(--color-green);
+}
+
+.listItem.done:hover {
+    background-color: var(--color-green-l);
+    box-shadow: 0px 0px 5px 1px var(--color-green);
+}
+
+.removeBtn,
+.checkmarkBtn {
     border: none;
 }
 
-.listItem:hover .removeBtn {
+.listItem:hover .removeBtn,
+.listItem:hover .checkmarkBtn {
     background-color: var(--color-gray-l);
 }
 
-.removeBtn>svg>g {
+.listItem.done .removeBtn,
+.listItem.done:hover .removeBtn,
+.listItem.done .checkmarkBtn,
+.listItem.done:hover .checkmarkBtn {
+    background-color: var(--color-green-l);
+}
+
+.removeBtn>svg>g,
+.checkmarkBtn>svg>g {
     fill: var(--color-gray);
     stroke: var(--color-gray);
 }
@@ -32,4 +58,14 @@
 .removeBtn:hover>svg>g {
     fill: var(--color-red);
     stroke: var(--color-red);
+}
+
+.checkmarkBtn:hover>svg>g {
+    fill: var(--color-green);
+    stroke: var(--color-green);
+}
+
+.listItem.done .checkmarkBtn>svg>g {
+    fill: var(--color-green);
+    stroke: var(--color-green-d);
 }

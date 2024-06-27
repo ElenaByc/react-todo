@@ -53,7 +53,8 @@ const TodoContainer = ({ tableName }) => {
       const todos = data.records.sort(compareRecords).map(record => {
         const todo = {
           id: record.id,
-          title: record.fields.title
+          title: record.fields.title,
+          done: record.fields.done ? true : false
         };
         return todo;
       });
@@ -87,7 +88,8 @@ const TodoContainer = ({ tableName }) => {
       const updatedData = await response.json();
       const newTodo = {
         title: title,
-        id: updatedData.id
+        id: updatedData.id,
+        done: false
       };
       setTodoList([...todoList, newTodo].sort(compareTodos));
     } catch (error) {
@@ -119,13 +121,43 @@ const TodoContainer = ({ tableName }) => {
     }
   };
 
+  const updateTodo = async (id, done) => {
+    const data = {
+      fields: {
+        done: !done
+      },
+    };
+    const options = {
+      method: "PATCH",
+      headers: headers,
+      body: JSON.stringify(data),
+    };
+    try {
+      const response = await fetch(`${url}/${tableName}/${id}`, options);
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status}`);
+      }
+      const updatedData = await response.json();
+      console.log('updatedData', updatedData);
+      const newTodoList = todoList.map((item) => {
+        if (item.id === id) {
+          item.done = !item.done;
+        }
+        return item;
+      });
+      setTodoList(newTodoList);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const toggleSort = () => {
     setSortAsc(!sortAsc);
   };
 
   return (
     <>
-      <h1>{tableName} To Do List</h1>
+      <h1>{tableName} To&nbsp;Do List</h1>
       <AddTodoForm onAddTodo={addTodo} />
       {isLoading ? (
         <p>Loading...</p>
@@ -134,6 +166,7 @@ const TodoContainer = ({ tableName }) => {
           todoList={todoList}
           sortAsc={sortAsc}
           onRemoveTodo={removeTodo}
+          onUpdateTodo={updateTodo}
           onToggleSort={toggleSort}
         />
       )}
