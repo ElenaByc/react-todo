@@ -172,7 +172,7 @@ const TodoContainer = ({ tableName }) => {
       >
         <HomeIcon height="30px" width="30px" />
       </button>
-      <h1>{tableName} To&nbsp;Do List</h1>
+      <h1 className={style.todoListTitle}>{tableName} To&nbsp;Do&nbsp;List</h1>
       <AddTodoForm onAddTodo={addTodo} />
       {isLoading ? (
         <p>Loading...</p>

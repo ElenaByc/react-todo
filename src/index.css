@@ -46,3 +46,11 @@ body {
     margin: 1rem auto;
     width: fit-content;
 }
+
+/* ---------- max-width: 720px ---------- */
+
+@media only screen and (max-width: 720px) {
+    #root {
+        width: 100%;
+    }
+}

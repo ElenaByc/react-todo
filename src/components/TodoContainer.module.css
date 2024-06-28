@@ -15,3 +15,12 @@
     fill: var(--color-blue);
     stroke: var(--color-blue);
 }
+
+/* ---------- max-width: 460px ---------- */
+
+@media only screen and (max-width: 460px) {
+    .todoListTitle {
+        width: 80%;
+    }
+
+}
