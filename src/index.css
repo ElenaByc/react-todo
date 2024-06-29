@@ -7,7 +7,9 @@
     --color-gray-l: #E0E0E0;
     --color-gray: #CCCCCC;
     --color-blue: #27446E;
-    --color-green: #23967F;
+    --color-green: #41AD49;
+    --color-green-d: #004900;
+    --color-green-l: #C2F2D0;
     --color-red: #C3423F;
     --color-dark: #292929;
     --color-black: #000000;
@@ -35,6 +37,7 @@ body {
 }
 
 #root {
+    position: relative;
     display: flex;
     flex-direction: column;
     row-gap: 5px;
@@ -42,4 +45,12 @@ body {
 
     margin: 1rem auto;
     width: fit-content;
+}
+
+/* ---------- max-width: 720px ---------- */
+
+@media only screen and (max-width: 720px) {
+    #root {
+        width: 100%;
+    }
 }

@@ -1,0 +1,152 @@
+.logoContainer {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+}
+
+.logoTitle {
+    font-size: 7rem;
+    margin-left: -130px;
+    margin-bottom: 20px;
+    margin-right: 30px;
+}
+
+.logoImage {
+    background-image: url('../assets/checkmark.png');
+    background-size: 250px auto;
+    width: 250px;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.greeting,
+.gotoTodoListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2,
+h3 {
+    color: var(--color-blue);
+    font-weight: 600;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.greeting h2 span,
+.gotoTodoListBtn span {
+    font-family: "Kaushan Script", cursive;
+    font-weight: 600;
+    margin-left: -1px;
+    margin-right: 5px;
+}
+
+.greeting p {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.greeting ul {
+    list-style: none;
+}
+
+.greeting ul li {
+    display: flex;
+    column-gap: 3px;
+}
+
+.greeting {
+    width: 70%;
+    margin-bottom: 40px;
+}
+
+.checkmark {
+    padding-top: 2px;
+}
+
+.checkmark>svg>g {
+    fill: var(--color-green);
+    stroke: var(--color-green-d);
+}
+
+.gotoTodoListBtn {
+    padding: 7px 12px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0px 0px 5px 1px var(--color-gray);
+    margin-bottom: 20px;
+
+    font-family: 'Source Sans 3';
+    font-weight: 600;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--color-dark);
+}
+
+.gotoTodoListBtn:hover {
+    color: var(--color-blue);
+    background-color: var(--color-gray-l);
+    box-shadow: 0px 0px 5px 1px var(--color-blue);
+}
+
+.gotoTodoListBtn:active {
+    scale: 95%;
+}
+
+
+/* ---------- max-width: 540px ---------- */
+
+@media only screen and (max-width: 540px) {
+    .logoTitle {
+        font-size: 6rem;
+        margin-left: -110px;
+        margin-bottom: 10px;
+        margin-right: 20px;
+    }
+
+    .logoImage {
+        background-size: 200px auto;
+        width: 200px;
+        height: 200px;
+    }
+
+    .greeting {
+        width: 90%;
+    }
+}
+
+/* ---------- max-width: 420px ---------- */
+
+@media only screen and (max-width: 420px) {
+    .logoTitle {
+        font-size: 5rem;
+        margin-left: -85px;
+        margin-bottom: 0px;
+        margin-right: 20px;
+    }
+
+    .logoImage {
+        background-size: 150px auto;
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* ---------- max-width: 340px ---------- */
+
+@media only screen and (max-width: 340px) {
+    .logoTitle {
+        font-size: 4rem;
+        margin-left: -65px;
+        margin-bottom: 0px;
+        margin-right: 15px;
+    }
+
+    .logoImage {
+        background-size: 120px auto;
+        width: 120px;
+        height: 120px;
+    }
+}
